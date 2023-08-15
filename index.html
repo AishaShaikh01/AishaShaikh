@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aisha Shaikh</title>
+  <script src="../jquery-3.6.0.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  
+</head>
+<body>
+
+  <header id="ontop">
+        <!-- -----------------nav bar---------------- -->
+    <nav class="navbar">
+      <a href="#intro" class="nav-branding">AISHA.</a>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#intro" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="#skills" class="nav-link">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a href="#portfolio" class="nav-link">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+       
+       
+      </div>
+    </nav>
+        <!-- ------------------name---------------- -->
+    <div id="intro">
+      <h1>&nbsp<span class="type-text"></span></h1>
+      <h2 class="slide">An aspiring Web Developer</h2>
+    </div>
+  </header>
+      <!-- --------------------------about-------------------- -->
+  <section id="about">
+    <div class="about-img"></div>
+    <div class="about-info">
+      <h1>About Me</h1>
+      <p>
+        Hello, I'm Aisha Shaikh, a passionate and skilled web developer specializing in PHP, Laravel, HTML/CSS, JavaScript, and database management. I am currently pursuing a bachelor's degree in software engineering, with a strong focus on honing my web development expertise.
+      Throughout my academic journey, I have completed several challenging projects, including the development of a dynamic e-commerce website using PHP and Laravel. Leading a team of developers, I successfully delivered a robust solution that handled thousands of transactions and garnered positive user feedback.
+      In addition to my academic projects, I actively engage in self-practice to continuously enhance my skills. Exploring various technologies and frameworks, such as JavaScript and HTML/CSS, I enjoy creating responsive web applications that deliver exceptional user experiences.
+      <br>
+      <br>
+    With a keen eye for detail and a dedication to staying up-to-date with industry trends, I strive to deliver high-quality web solutions. I am enthusiastic about collaborating with like-minded professionals to tackle exciting challenges and contribute to meaningful projects in the field of web development.
+      I invite you to explore my portfolio and see firsthand the projects I have worked on. If you're looking for a motivated and versatile web developer, I would be thrilled to discuss potential opportunities where I can leverage my skills and contribute to your projects.
+      </p><br>
+    </div>
+  </section>
+      <!-- ---------------------skills------------------------ -->
+  <section id="skills">
+    <h1>My Skills</h1>
+    <div class="skillbox">
+      <li><h3>HTML</h3>
+        <span class="sbar"><span class="html"></span></span>
+        </li>
+        <li><h3>CSS</h3>
+        <span class="sbar"><span class="css"></span></span>
+        </li>
+        <li><h3>JAVASCRIPT</h3>
+        <span class="sbar"><span class="js"></span></span>
+        </li>
+        <li><h3> PHP</h3>
+        <span class="sbar"><span class="php"></span></span>
+        </li>
+        <li><h3>LARAVEL</h3>
+        <span class="sbar"><span class="laravel"></span></span>
+        </li>
+        <li><h3>jAVA</h3>
+        <span class="sbar"><span class="java"></span></span>
+        </li>
+        <li><h3>C#</h3>
+        <span class="sbar"><span class="c"></span></span>
+        </li>
+    </div>
+
+  </section>
+          <!-- ----------------------portfolio---------------------- -->
+  <div id="portfolio">
+
+    <h1>Portfolio</h1>
+    <div class="container">
+      
+      <div class="row"> 
+        <div class="column">
+          <img src="../images/crossfit.png" style="width:100%">
+          
+     
+        </div>
+        <div class="column">
+          <img src="../images/burger.png" style="width:100%">
+         
+        </div>  
+        <div class="column">
+          <img src="../images/coffee.png" style="width:100%">
+          
+         
+        </div>
+        <div class="column">
+          <img src="../images/homiz.png" style="width:100%">
+         
+        </div>
+      </div>
+    </div>
+
+  </div>    
+        <!-- ----------------------contact------------------------------ -->
+  <section id="contact">
+    <h1>Contact Me</h1>
+    <div class="contactinfo">
+      Get in touch with me > <a href="mailto:shaikhaisha081@gmail.com">shaikhaisha081@gmail.com</a>
+      <br>
+      <br>
+      Or find me on: 
+      <br>
+      <br>
+      <p class="links"> </p><a href="www.linkedin.com/in/aishashaikh-081as1001">Linkedin</a> ||    <a href="https://github.com/AishaShaikh01">Github</a>        ||      <a href="https://stackoverflow.com/users/14857161/aisha-shaikh">Stack overflow</a> </p>
+      <a href="../CV_AishaShaikh.pdf"><button class="cv">See my CV</button></a>
+    </div>
+  </section>
+
+
+  <!-- --------------------------js-------------------- -->
+
+
+<!-- sticky navbar -->
+    <script>
+  
+      $(document).ready(function(){
+        $(window).scroll(function(){
+          var scroll = $(window).scrollTop();
+          
+          if (scroll > 300) {
+            $(".navbar").css("background" , "rgba(0,0,0)");
+            
+          }
+      
+          else{
+            $(".navbar").css("background" , "transparent");  	
+          }
+        })
+      })
+      </script>
+      <!-- Smooth transition through sections -->
+      <script>
+        $(document).ready(function () {
+          // Add smooth scrolling to all links
+          $("a").on('click', function (event) {
+    
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+    
+              // Store hash
+              var hash = this.hash;
+    
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 800, function () {
+    
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+        });
+      </script>
+      <!-- responsive navbar -->
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+
+})
+
+document.querySelectorAll(".nav-link").forEach(a => a.addEventListener("click"), () => {
+  hamburger.classList.remove("active")
+  navMenu.classList.remove("active");
+})
+  </script>
+      <!-- displaying text -->
+  <script>
+    'use strict';
+
+const type = document.querySelector('.type-text');
+
+let listTexts = ['Hi I\'m AISHA SHAIKH'];
+
+let index = -1;
+let current = 0;
+
+function typeTextFunc() {
+    if (current === listTexts.length) {
+        current = 0;
+    }
+    let typeText = setInterval(() => {
+        if (index == listTexts[current].length - 1) {
+            clearInterval(typeText);
+            clearTextFunc();
+        } else {
+            index++;
+            type.textContent += listTexts[current][index];
+        }
+    }, 150);
+};
+
+function clearTextFunc() {
+    let clearText = setInterval(() => {
+        if (type.textContent.length == 0) {
+            clearInterval(clearText);
+            index = -1;
+            current++
+            typeTextFunc();
+        } else {
+            type.textContent = type.textContent.slice(0, -1)
+        }
+    }, 150);
+};
+
+typeTextFunc();
+  </script>
+
+</body>
+</html>
