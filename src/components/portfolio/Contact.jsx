@@ -1,10 +1,10 @@
 import { Mail, Github, Linkedin, MessageCircle, Terminal } from 'lucide-react';
 
 const links = [
-  { label: 'Email', href: 'mailto:aisha@example.com', icon: Mail, color: 'hover:border-cyan/50 hover:text-cyan' },
+  { label: 'Email', href: 'mailto:shaikhaisha081@gmail.com', icon: Mail, color: 'hover:border-cyan/50 hover:text-cyan' },
   { label: 'GitHub', href: 'https://github.com', icon: Github, color: 'hover:border-violet-400/50 hover:text-violet-400' },
   { label: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin, color: 'hover:border-blue-400/50 hover:text-blue-400' },
-  { label: 'WhatsApp', href: 'https://wa.me/', icon: MessageCircle, color: 'hover:border-emerald-400/50 hover:text-emerald-400' },
+  { label: 'WhatsApp', href: 'https://wa.me/+923041345169', icon: MessageCircle, color: 'hover:border-emerald-400/50 hover:text-emerald-400' },
 ];
 
 export default function Contact() {
