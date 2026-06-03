@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, Terminal } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Menu, X, Terminal } from "lucide-react";
 
-const links = ['About', 'Services', 'Projects', 'Contact'];
+const links = ["About", "Services", "Projects", "Contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -9,79 +9,108 @@ export default function Navbar() {
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', fn, { passive: true });
-    return () => window.removeEventListener('scroll', fn);
+    window.addEventListener("scroll", fn, { passive: true });
+
+    return () => window.removeEventListener("scroll", fn);
   }, []);
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+
+    setOpen(false);
+  };
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-[#0A0F1E]/90 backdrop-blur-md border-b border-[#1E2A40] py-3'
-          : 'bg-transparent py-5'
-      }`}>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-[#0A0F1E]/90 backdrop-blur-md border-b border-[#1E2A40] py-3"
+            : "bg-transparent py-5"
+        }`}
+      >
         <div className="max-w-6xl mx-auto px-6 lg:px-10 flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group select-none">
+          <button
+            onClick={() => scrollToSection("home")}
+            className="flex items-center gap-2 group select-none"
+          >
             <Terminal className="w-5 h-5 text-cyan group-hover:text-cyan/80 transition-colors" />
             <span className="font-mono text-base font-semibold text-foreground tracking-tight">
               aisha<span className="text-cyan">.</span>dev
             </span>
-          </a>
+          </button>
 
-          {/* Desktop nav */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {links.map((l, i) => (
-              <a
+              <button
                 key={l}
-                href={`#${l.toLowerCase()}`}
+                onClick={() => scrollToSection(l.toLowerCase())}
                 className="font-mono text-xs text-muted-foreground hover:text-cyan transition-colors duration-200 flex items-center gap-1.5"
               >
                 <span className="text-cyan/50">0{i + 1}.</span>
                 <span>{l}</span>
-              </a>
+              </button>
             ))}
           </nav>
 
-          <a
-            href="#contact"
+          {/* Hire Me Button */}
+          <button
+            onClick={() => scrollToSection("contact")}
             className="hidden md:inline-flex items-center font-mono text-xs text-cyan border border-cyan/40 px-5 py-2.5 hover:bg-cyan/10 hover:border-cyan transition-all duration-200"
           >
             Hire Me
-          </a>
+          </button>
 
+          {/* Mobile Menu Button */}
           <button
-            onClick={() => setOpen(o => !o)}
+            onClick={() => setOpen(!open)}
             className="md:hidden p-2 text-muted-foreground hover:text-cyan transition-colors"
             aria-label="Toggle menu"
           >
-            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {open ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
           </button>
         </div>
       </header>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {open && (
         <div className="fixed inset-0 z-40 md:hidden">
-          <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
+          <div
+            className="absolute inset-0 bg-black/60"
+            onClick={() => setOpen(false)}
+          />
+
           <nav className="absolute top-0 left-0 right-0 bg-[#0D1526] border-b border-[#1E2A40] pt-20 pb-8 px-6 flex flex-col gap-5">
             {links.map((l, i) => (
-              <a
+              <button
                 key={l}
-                href={`#${l.toLowerCase()}`}
-                onClick={() => setOpen(false)}
-                className="font-mono text-sm text-muted-foreground hover:text-cyan transition-colors flex items-center gap-2"
+                onClick={() => scrollToSection(l.toLowerCase())}
+                className="font-mono text-sm text-muted-foreground hover:text-cyan transition-colors flex items-center gap-2 text-left"
               >
-                <span className="text-cyan/50">0{i + 1}.</span> {l}
-              </a>
+                <span className="text-cyan/50">0{i + 1}.</span>
+                {l}
+              </button>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
+
+            <button
+              onClick={() => scrollToSection("contact")}
               className="mt-2 inline-flex justify-center font-mono text-xs text-cyan border border-cyan/40 px-5 py-3 hover:bg-cyan/10 transition-all"
             >
               Hire Me
-            </a>
+            </button>
           </nav>
         </div>
       )}
